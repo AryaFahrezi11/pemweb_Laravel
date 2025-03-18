@@ -12,6 +12,14 @@ Route::get('/products', function () {
     return "Daftar Produk";
 });
 
+Route::get('/category', function () {
+    return "Daftar category";
+});
+
+Route::get('/Detail-category', function () {
+    return "Detail Category";
+});
+
 // Menampilkan detail produk
 Route::get('/products/{id}', function ($id) {
     return "Detail Produk dengan ID: " . $id;
