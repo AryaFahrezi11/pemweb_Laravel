@@ -7,32 +7,35 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/home', function () {
+    $title = "Homepage";
+    return view('web.homepage',['title'=>$title]);
+});
+
 // Menampilkan daftar produk
-Route::get('/products', function () {
-    return "Daftar Produk";
+Route::get('products', function () {
+    $title = "products";
+    return view('web.products',);
 });
 
-Route::get('/category', function () {
-    return "Daftar category";
+Route::get('products/{slug}', function ($slug) {
+    return view('web.single_products');
 });
 
-Route::get('/Detail-category', function () {
-    return "Detail Category";
+Route::get('category', function () {
+    return view('web.category');
 });
 
-// Menampilkan detail produk
-Route::get('/products/{id}', function ($id) {
-    return "Detail Produk dengan ID: " . $id;
+Route::get('category/{slug}', function ($slug) {
+    return view('web.single_category');
 });
 
-// Menampilkan halaman checkout
-Route::get('/checkout', function () {
-    return "Halaman Checkout";
+Route::get('cart', function () {
+    return view('web.cart');
 });
 
-// Menampilkan halaman profil pengguna
-Route::get('/profile', function () {
-    return "Halaman Profil Pengguna";
+Route::get('checkout', function () {
+    return view('web.checkout');
 });
 
 Route::view('dashboard', 'dashboard')
